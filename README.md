@@ -65,3 +65,10 @@ https://www.youtube.com/watch?v=ve85ejcYiZ0&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILf
 
 Class Components Function Components
 Class Components でのコンポーネント
+
+Class Components では
+プロパティは
+this.props
+ステートは
+this.state
+this.setState({ key: value })
