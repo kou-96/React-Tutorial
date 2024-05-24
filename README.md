@@ -128,3 +128,52 @@ return (
 </>
 );
 }
+
+JSX 内で繰り返しをする場合は
+プロパティを key に設定する必要がある。
+
+### Lesson5【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #5- フォームと親子間のデータのやり取り
+
+https://www.youtube.com/watch?v=kEBP9WhifX0&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=5
+
+フォームの中では
+onClick ではなく
+onSubmit を使うことで
+text に入力した文字を
+Enter を押した時に反応させたり出来る。
+
+親子間でのデータのやり取り
+子コンポーネント=>親コンポーネント
+
+function Parent() {
+const testFunc = () => {}
+return <Child parentFunc={testFunc} />
+}
+
+function Child({ parentFunc }) {
+return <div onClick={() => parentFunc(text)}>テスト</div>
+}
+
+親コンポーネントで定義した関数を
+親コンポーネントから子コンポーネントに
+プロパティとして渡して
+子コンポーネントからそれを呼び出すという風にして
+データを渡す。
+
+親コンポーネント=>子コンポーネント
+
+function Parent() {
+const test = "テストデータ"
+return <Child parentData={test} />
+}
+
+function Child({ parentData }) {
+return <div>{parentData}</div>
+}
+
+親コンポーネントから子コンポーネントに
+データを渡す時は
+親コンポーネントから子コンポーネントに
+プロパティとしてデータを渡すとして
+子コンポーネントはプロパティから
+データを取得する。
