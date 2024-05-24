@@ -189,3 +189,42 @@ https://www.youtube.com/watch?v=SKrnW7PRBdk&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILf
 関数コンポーネントは useEffect です
 
 Unmount は useEffect の第一引数の関数の返り値になります。
+
+初期化値 => componentDidMount, useEffect
+更新時(new props, setState, forceUpdate) => componentDidUpdate, useEffect
+終了時 => componentWillUnmount, useEffect(第 1 引数の返り値)
+
+function components では全て useEffect
+
+useEffect(() => {
+// mounting, updating 時に常に呼ばれる。
+})
+
+useEffect(() => {
+// mounting 時のみ呼ばれる。
+}, [])
+
+useEffect(() => {
+// mounting, langs の変更時に呼ばれる。
+}, [langs])
+
+useEffect(() => {
+// mounting, langs の変更時に呼ばれる。
+return () => {
+// unmounting 時に呼ばれる。
+}
+})
+
+class components ではそれぞれのメソッド
+
+componentDidMount() {
+// mounting 時に呼ばれる。
+}
+
+componentDidUpdate() {
+// Updating 時に呼ばれる。
+}
+
+componentDidUnmount() {
+// unmounting 時に呼ばれる。
+}
