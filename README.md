@@ -1,4 +1,4 @@
-### Lesson1 2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #1- React の新規プロジェクト立ち上げ
+### Lesson1【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #1- React の新規プロジェクト立ち上げ
 
 https://www.youtube.com/watch?v=lEEC_NuIGQc&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13
 
@@ -177,3 +177,15 @@ return <div>{parentData}</div>
 プロパティとしてデータを渡すとして
 子コンポーネントはプロパティから
 データを取得する。
+
+### Lesson6 【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #6 - コンポーネントのライフサイクル
+
+https://www.youtube.com/watch?v=SKrnW7PRBdk&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=6
+
+コンポーネントのライフサイクル
+
+クラス コンポーネントは componentDidMount componentDidUpdate componentDidUnmount を使う
+
+関数コンポーネントは useEffect です
+
+Unmount は useEffect の第一引数の関数の返り値になります。
