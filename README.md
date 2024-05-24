@@ -132,7 +132,7 @@ return (
 JSX 内で繰り返しをする場合は
 プロパティを key に設定する必要がある。
 
-### 【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #5- フォームと親子間のデータのやり取り
+### Lesson5【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #5- フォームと親子間のデータのやり取り
 
 https://www.youtube.com/watch?v=kEBP9WhifX0&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=5
 
