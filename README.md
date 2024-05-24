@@ -65,3 +65,66 @@ https://www.youtube.com/watch?v=ve85ejcYiZ0&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILf
 
 Class Components Function Components
 Class Components でのコンポーネント
+
+Class Components では
+プロパティは
+this.props
+ステートは
+this.state
+this.setState({ key: value })
+
+### Lesson4 【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #4- 条件分岐 (if) と繰り返し (loop)
+
+https://www.youtube.com/watch?v=ZLEMN2pCE8E&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=4
+
+条件分岐による表示切替
+
+例
+function Test() {
+
+return (
+<>
+
+<div>
+{tab === "list" ? <List /> : <Form />}
+</div>
+</>
+);
+}
+
+or
+
+function Test() {
+
+const body = tab === "list" ? <List /> : <Form />
+
+return (
+<>
+
+<div>
+{ body }
+</div>
+</>
+);
+}
+
+このように
+三項演算子を使うと
+条件分岐を簡単にできる。
+
+繰り返しによるリスト表示
+function Test() {
+
+return (
+<>
+
+<div>
+{
+    list.map((value, index) => {
+        return <div key={index}>{ value }</div>
+    })
+}
+</div>
+</>
+);
+}
