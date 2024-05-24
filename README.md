@@ -1,4 +1,4 @@
-### Lesson1 2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #1- React の新規プロジェクト立ち上げ
+### Lesson1【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #1- React の新規プロジェクト立ち上げ
 
 https://www.youtube.com/watch?v=lEEC_NuIGQc&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13
 
@@ -33,7 +33,7 @@ export default App;
 これで App を default で export しているから
 この場合だと App が使える。
 
-### Lesson2 【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #2- コンポーネントのプロパティ(props)とステート(state)
+### Lesson2【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #2- コンポーネントのプロパティ(props)とステート(state)
 
 https://www.youtube.com/watch?v=8KV1CBcB2Yg&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=2
 
@@ -59,7 +59,7 @@ List に title というプロパティを渡している。
 子コンポーネントからプロパティの参照方法
 const ComponentFunc = (props) => {}
 
-### Lesson3 【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #3- Class Components と Function Components の書き方の違い
+### Lesson3【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #3- Class Components と Function Components の書き方の違い
 
 https://www.youtube.com/watch?v=ve85ejcYiZ0&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=3
 
@@ -73,7 +73,7 @@ this.props
 this.state
 this.setState({ key: value })
 
-### Lesson4 【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #4- 条件分岐 (if) と繰り返し (loop)
+### Lesson4【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #4- 条件分岐 (if) と繰り返し (loop)
 
 https://www.youtube.com/watch?v=ZLEMN2pCE8E&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=4
 
@@ -132,7 +132,7 @@ return (
 JSX 内で繰り返しをする場合は
 プロパティを key に設定する必要がある。
 
-### 【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #5- フォームと親子間のデータのやり取り
+### Lesson5【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #5- フォームと親子間のデータのやり取り
 
 https://www.youtube.com/watch?v=kEBP9WhifX0&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=5
 
@@ -177,3 +177,21 @@ return <div>{parentData}</div>
 プロパティとしてデータを渡すとして
 子コンポーネントはプロパティから
 データを取得する。
+
+### Lesson6 【2020 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #6- コンポーネントのライフサイクル
+
+https://www.youtube.com/watch?v=SKrnW7PRBdk&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=6
+
+コンポーネントのライフサイクル
+
+class コンポーネントは
+componentDidMount
+componentDidUpdate
+componentDidUnmount
+これらを使う
+
+function コンポーネントは
+useEffect
+
+Unmount は useEffect の
+第一引数の関数の返り値になる。
