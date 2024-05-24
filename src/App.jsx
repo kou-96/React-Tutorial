@@ -1,28 +1,31 @@
-import React from "react";
+import { useState } from "react";
 import { List } from "./List";
 import { Form } from "./Form";
+import { LANGUAGES } from "./const/languages";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { tab: "list" };
-  }
+function App() {
+  const [tab, setTab] = useState("list");
+  const [langs, setLangs] = useState(LANGUAGES);
 
-  render() {
-    const { tab } = this.state;
-    return (
+  const addLang = (lang) => {
+    setLangs([...langs, lang]);
+    setTab("list");
+  };
+
+  return (
+    <>
       <div>
         <header>
           <ul>
-            <li onClick={() => this.setState({ tab: "list" })}>リスト</li>
-            <li onClick={() => this.setState({ tab: "form" })}>フォーム</li>
+            <li onClick={() => setTab("list")}>リスト</li>
+            <li onClick={() => setTab("form")}>フォーム</li>
           </ul>
         </header>
         <hr />
-        {tab === "list" ? <List /> : <Form />}
+        {tab === "list" ? <List langs={langs} /> : <Form onAddLang={addLang} />}
       </div>
-    );
-  }
+    </>
+  );
 }
 
 export default App;
