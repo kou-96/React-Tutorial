@@ -440,7 +440,7 @@ React の Portal
 
 ```javascript
 <ParentComponent>
-  <ChildlComponent> // Portalを利用している場合</ChildlComponent>
+  <ChildlComponent></ChildlComponent>
 </ParentComponent>
 ```
 
@@ -608,3 +608,5 @@ export const ChildComponent = () => {
   );
 };
 ```
+
+### これにて Lesson 終了
