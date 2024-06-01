@@ -1,22 +1,25 @@
 import React from "react";
 import { List } from "./List";
 import { Form } from "./Form";
-import { getLanguages } from "./const/languages";
+import styled from "styled-components";
+import { Header } from "./Header";
+import { ThemeContext } from "./contexts/ThemeContext";
+
+const Container = styled.div`
+  height: 100%;
+  color: ${({ theme }) => theme.color};
+  background-color: ${({ theme }) => theme.backgroundColor};
+`;
 
 class App extends React.Component {
+  static contextType = ThemeContext;
+
   constructor(props) {
     super(props);
     this.state = {
       tab: "list",
-      langs: [],
+      langs: props.data,
     };
-  }
-  componentDidMount() {
-    this.fetchLanguages();
-  }
-  async fetchLanguages() {
-    const langs = await getLanguages();
-    this.setState({ langs });
   }
   addLang(lang) {
     this.setState({
@@ -26,22 +29,18 @@ class App extends React.Component {
   }
   render() {
     const { tab, langs } = this.state;
+    const [theme] = this.context;
     return (
-      <div>
-        <header>
-          <ul>
-            <li onClick={() => this.setState({ tab: "list" })}>リスト</li>
-            <li onClick={() => this.setState({ tab: "form" })}>フォーム</li>
-          </ul>
-        </header>
-        <hr />
+      <Container theme={theme}>
+        <Header tab={tab} setTab={(t) => this.setState({ tab: t })} />
         {tab === "list" ? (
           <List langs={langs} />
         ) : (
           <Form onAddLang={(lang) => this.addLang(lang)} />
         )}
-      </div>
+      </Container>
     );
   }
 }
+
 export default App;
