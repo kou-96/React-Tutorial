@@ -503,3 +503,108 @@ const Test = () => {
 
 useRef で帰ってきた参照を div の ref プロパティに入れている。
 これにより、ref.current にこの div への参照が入る。
+
+### 【2021 年最新 React 入門】未経験から 1 週間でマスターする React 入門 #11. Context を利用したテーマの変更
+
+https://www.youtube.com/watch?v=cYa8-3lfCn4&list=PL0ATFRXu9uECMPBV7GspaLz3KqKILfa13&index=11
+
+React の Context
+下記のようにユーザーの情報などを、親コンポーネントから
+子供に渡し続けるような状態は、あまり良くない。
+
+```javascript
+const Granpa = () => <Parent user={user} />;
+const Parent = ({ user }) => <Child user={user} />;
+const Child = ({ user }) => <GrandChild user={user} />;
+const GrandChild = ({ user }) => <div>{user}</div>;
+```
+
+このようにどんどん親から子へ引き継いでいく必要がある。
+そういうときに、Context という機能を利用して
+このプロパティの引き渡しの連続を解消することが出来る。
+
+```javascript
+import React from "react";
+export const UserNameContext = React.createContext("テスト");
+```
+
+```javascript
+const userName = "テスト";
+
+const ParentComponent = () => {
+  return (
+    <UserNameContext.Provider value={userName}>
+      <ChildComponent />
+    </UserNameContext.Provider>
+  );
+};
+```
+
+上記のように .Provider をつけてタグとして利用する。
+値は value プロパティを設定する。
+これを子コンポーネントでは下記のように利用する。
+
+```javascript
+import { useContext } from "react";
+
+const ChildComponent = () => {
+  const userName = useContext(UserNameContext);
+
+  return <div>{userName}</div>;
+};
+```
+
+useContext メソッドを使うことで、定義された UserNameContext の値を取得する。
+
+子コンポーネントから Context の更新
+現状では、子コンポーネントから Context の内容を更新することはできません。
+このため、少しコードを修正する。
+
+```javascript
+import React from "react";
+
+export const UserNameContext = React.createContext(["テスト", () => {}]);
+```
+
+Context で配列を定義するようにする。
+配列の第 1 引数が値で、第 2 引数が更新するメソッドにしました。
+
+このような形式、何かに見覚えはないだろうか？
+
+useState が同じような感じでしたね。
+これで、useState のように使うことが出来る。
+
+これは別に今は配列で返しているが
+配列で返さずにオブジェクトで返しても良い。
+
+Context の更新
+
+Parent 側
+
+```javascript
+const [userName, setUserName] = useState("テスト");
+export const ParentComponent = () => {
+  return (
+    <UserNameContext.Provider value={[userName, setUserName]}>
+      <ChildComponent />
+    </UserNameContext.Provider>
+  );
+};
+```
+
+Child 側
+
+```javascript
+import { useContext } from "react";
+
+export const ChildComponent = () => {
+  const [userName, setUserName] = useContext(UserNameContext);
+
+  return (
+    <div>
+      {userName}
+      <button onClick={() => setUserName("エグザム")} />
+    </div>
+  );
+};
+```

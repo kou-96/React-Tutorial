@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button } from "./components/button";
 import styled from "styled-components";
+import { Button } from "./components/button";
 import { TabBodyContainer } from "./components/tab-body-container";
 import { FormModal } from "./FormModal";
 import { Hint } from "./Hint";
@@ -11,17 +11,14 @@ const Label = styled.label`
   font-size: 14px;
   font-weight: bold;
 `;
-
 const Input = styled.input`
   border-radius: 3px;
   padding: 4px 8px;
   border: 1px solid black;
 `;
-
 const ButtonContainer = styled.div`
   margin-top: 24px;
 `;
-
 const FormButton = styled(Button)`
   width: 120px;
 `;
@@ -44,6 +41,7 @@ export const Form = ({ onAddLang }) => {
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
+            autoFocus
           />
           <Hint />
         </div>
